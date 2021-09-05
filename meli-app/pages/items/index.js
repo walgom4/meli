@@ -5,22 +5,23 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import { setUrl } from '@store/slice/searchSlice'
 
-export default function Home() {
-  const { value: url, keyword } = useSelector(state => state.url)
+export default function Items() {
+  const { value: url, keyword, id } = useSelector(state => state.url)
   const dispatch = useDispatch()
   const router = useRouter()
-  const { q } = router.query
   useEffect(() => {
-    if (url && keyword && url !== '') {
+    if (url && keyword && url !== '' && window.location.href !== url) {
       router.push(url)
     }
   }, [url])
   useEffect(() => {
+    const { q } = router.query
+    console.log(router.query)
     if (q) dispatch(setUrl(`${q}`))
-  }, [q])
+  }, [router])
   return (
     <PageTemplate>
-      {url && keyword && url !== '' && <DataList url={url} />}
+      {url && keyword && url !== '' && id === '' && <DataList url={url} />}
     </PageTemplate>
   )
 }

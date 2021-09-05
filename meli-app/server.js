@@ -48,8 +48,8 @@ app.prepare().then(() => {
                   formatData.items[i].picture = utils.filterPictures(value.data, '200x200')[0].url
                 })
                 res.json(formatData)
-              }))
-            }))
+              })).catch(() => { res.status(500).send('Ha ocurrido un error') })
+            })).catch(() => { res.status(500).send('Ha ocurrido un error') })
           } catch (error) {
             console.log(error)
             res.status(500).send('Ha ocurrido un error')

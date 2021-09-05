@@ -16,3 +16,15 @@ export const useGetItems = (path, limit = LIMIT, offset = OFFSET) => {
 
   return { posts, error }
 }
+
+export const useGetItemDetail = (path) => {
+  if (!path) {
+    throw new Error('Path is required')
+  }
+
+  const url = `${BASE_URL}${path}`
+
+  const { data: posts, error } = useSWR(url, fetcher)
+
+  return { posts, error }
+}

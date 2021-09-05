@@ -34,7 +34,6 @@ export const Search = () => {
       dispatch(setUrl(`${keyword}`))
     }
   }
-  console.log(keywordValue)
   useEffect(() => {
     setKeyword(keywordValue)
   }, [])

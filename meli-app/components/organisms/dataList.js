@@ -4,6 +4,8 @@ import { useGetItems } from '@hooks/useRequest'
 import Image from 'next/image'
 import { currencyFormat } from '@utils/utils'
 import { Container, Row, Col } from 'react-grid-system'
+import { useDispatch } from 'react-redux'
+import { setUrlDetails } from '@store/slice/searchSlice'
 
 export const DataContainer = styled.div`
   display: flex;
@@ -33,17 +35,17 @@ const Title = (props) => {
 }
 
 const Amount = (props) => {
-  return (<div>{currencyFormat(props.item?.price?.amount)}</div>)
+  return (<div>{currencyFormat(props.item?.price?.amount)}{props.item.free_shipping ? 'si' : ''}</div>)
 }
 
 export const DataList = ({ url }) => {
   if (url !== null) {
     const { posts, error } = useGetItems(url)
-
-    if (error) return <h1>Something went wrong!</h1>
+    const dispatch = useDispatch()
+    if (error) return <h1>Ha ocurrido un error!</h1>
     if (!posts) {
       return (<DataContainer>
-        <div className="item"><h1>Loading...</h1>
+        <div className="item"><h1>Cargando...</h1>
         </div>
         </DataContainer>)
     }
@@ -52,7 +54,9 @@ export const DataList = ({ url }) => {
         <div className="itemList">
         {posts && posts.items && posts.items.map((item) => {
           return (
-            <div className="item" key={item.id}>
+            <div className="item" key={item.id} onClick={() => {
+              dispatch(setUrlDetails(`${item.id}`))
+            }}>
               <Container fluid>
                 <Row>
                   <Col md={2}>
@@ -60,9 +64,8 @@ export const DataList = ({ url }) => {
                       <Image key={`img_${item.id}`} src={item.picture} alt={item.title} width="180" height="180" objectFit={'contain'} quality={100}/>
                     </div></Col>
                   <Col md={6}>
-                    <div>{item?.free_shipping ? 'si' : 'no'}</div>
-                    <Title key={item.id} item={item}></Title>
                     <Amount item={item}></Amount>
+                    <Title key={item.id} item={item}></Title>
                   </Col>
                   <Col md={2}>
                     <div>{item?.state_name}</div>

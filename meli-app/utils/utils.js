@@ -65,6 +65,9 @@ const filterPictures = (data, size) => {
   })
 }
 
-const currencyFormat = data => data ? `$ ${data}` : ''
+const currencyFormat = (data) => {
+  const value = Math.trunc(data)
+  return data ? `$ ${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}` : ''
+}
 
 module.exports = { formatItems, formatItemDetail, currencyFormat, filterPictures }

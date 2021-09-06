@@ -6,24 +6,31 @@ import { setUrlDetails } from '@store/slice/searchSlice'
 import { DataDetail } from '@components/organisms/dataDetail'
 
 export default function ItemsId() {
-  const { value: url, keyword } = useSelector(state => state.url)
+  const { id, keyword } = useSelector(state => state.url)
   const dispatch = useDispatch()
   const router = useRouter()
   useEffect(() => {
-    if (url && keyword && url !== '') {
-      router.push(url)
+    if (keyword && keyword !== '' && id === '') {
+      router.push(`/items?q=${keyword}`)
     }
-  }, [url])
+  }, [keyword])
   useEffect(() => {
-    const { id } = router.query
-    if (id) {
-      dispatch(setUrlDetails(`${id}`))
+    if (id && id !== '') {
+      router.push(`/items/${id}`)
     }
-  }, [router])
+  }, [id])
+  if (router) {
+    useEffect(() => {
+      const { id } = router.query
+      if (id) {
+        dispatch(setUrlDetails(`${id}`))
+      }
+    }, [router.query])
+  }
 
   return (
     <PageTemplate>
-        {url && keyword && url !== '' && <DataDetail url={url} />}
+        {id && id !== '' && <DataDetail data={id} />}
     </PageTemplate>
   )
 }

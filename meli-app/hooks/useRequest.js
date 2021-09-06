@@ -5,24 +5,24 @@ const BASE_URL = 'http://localhost:3000/api'
 const LIMIT = 4
 const OFFSET = 0
 
-export const useGetItems = (path, limit = LIMIT, offset = OFFSET) => {
-  if (!path) {
-    throw new Error('Path is required')
+export const useGetItems = (value, limit = LIMIT, offset = OFFSET) => {
+  if (!value) {
+    throw new Error('value is required')
   }
 
-  const url = `${BASE_URL}${path}&limit=${limit}&offset=${offset}`
+  const url = `${BASE_URL}/items?q=${value}&limit=${limit}&offset=${offset}`
 
   const { data: posts, error } = useSWR(url, fetcher)
 
   return { posts, error }
 }
 
-export const useGetItemDetail = (path) => {
-  if (!path) {
-    throw new Error('Path is required')
+export const useGetItemDetail = (value) => {
+  if (!value) {
+    throw new Error('value is required')
   }
 
-  const url = `${BASE_URL}${path}`
+  const url = `${BASE_URL}/items/${value}`
 
   const { data: posts, error } = useSWR(url, fetcher)
 

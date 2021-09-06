@@ -9,14 +9,22 @@ const resources = {
     translation: {
       'Never stop searching': 'Never stop searching',
       'Made by Walter Gomez': 'Made by Walter Gomez',
-      'Welcome to React': 'Welcome to React and react-i18next'
+      'Welcome to React': 'Welcome to React and react-i18next',
+      'Product description': 'Product description',
+      used: 'used',
+      new: 'new',
+      sold: 'sold'
     }
   },
   es: {
     translation: {
       'Never stop searching': 'Nunca dejes de buscar',
       'Made by Walter Gomez': 'Hecho por Walter Gómez',
-      'Welcome to React': 'Bienvenido a i 18n'
+      'Welcome to React': 'Bienvenido a i 18n',
+      'Product description': 'Descripción del producto',
+      used: 'usado',
+      new: 'nuevo',
+      sold: 'vendidos'
     }
   }
 }

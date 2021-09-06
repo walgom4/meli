@@ -5,25 +5,26 @@ export const searchSlice = createSlice({
   initialState: {
     id: '',
     keyword: '',
-    value: ''
+    categories: []
   },
   reducers: {
     setUrl: (state, action) => {
       state.keyword = `${action.payload}`
       state.id = ''
-      state.value = `/items?q=${action.payload}`
     },
     setKeyword: (state, action) => {
       state.keyword = `${action.payload}`
     },
     setUrlDetails: (state, action) => {
       state.id = `${action.payload}`
-      state.value = `/items/${action.payload}`
+    },
+    setCategories: (state, action) => {
+      state.categories = action.payload
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { setUrl, setOffset, setLimit, setUrlDetails } = searchSlice.actions
+export const { setUrl, setOffset, setLimit, setUrlDetails, setCategories } = searchSlice.actions
 
 export default searchSlice.reducer

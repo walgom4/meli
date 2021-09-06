@@ -34,10 +34,10 @@ axios
 ## Folder Structure
 ```bash
 ├── components              # based in atomic design
-├────── atoms               
-├────── molecules               
-├────── organisms           
-├────── template            
+├────── atoms               # container, description,page container, place             
+├────── molecules           # amount, breadcrumb    
+├────── organisms           # dataList, dataDetail, searchBar
+├────── template            # page template
 ├── hooks                   # custom hooks
 ├── pages                   # pages
 ├── public                  # pages
@@ -52,3 +52,5 @@ axios
 ├── README.md
 └── server.js               # API/proxy
 ```
+
+## Walter Gómez

@@ -84,10 +84,10 @@ export const DataDetail = ({ data }) => {
     const { t } = useTranslation()
     const { posts, error } = useGetItemDetail(data)
     const dispatch = useDispatch()
-    if (error) return <h1>Ha ocurrido un error!</h1>
+    if (error) return <h1>{t('error')}</h1>
     if (!posts) {
       return (<DataContainer>
-        <div className="item"><h1>Cargando...</h1>
+        <div className="item"><h1>{t('loading')}</h1>
         </div>
         </DataContainer>)
     }
@@ -117,7 +117,7 @@ export const DataDetail = ({ data }) => {
                     <PriceDetail>
                       {posts?.item?.price?.amount ? currencyFormat(posts?.item?.price?.amount) : '0'}<div className="decimal">00</div>
                     </PriceDetail>
-                    <Button>Comprar</Button>
+                    <Button>{t('buy')}</Button>
                   </DetailContainer>
                 </div>
               </div>

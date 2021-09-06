@@ -13,7 +13,10 @@ const resources = {
       'Product description': 'Product description',
       used: 'used',
       new: 'new',
-      sold: 'sold'
+      sold: 'sold',
+      loading: 'Loading...',
+      buy: 'Buy',
+      error: 'Error'
     }
   },
   es: {
@@ -24,7 +27,10 @@ const resources = {
       'Product description': 'Descripción del producto',
       used: 'usado',
       new: 'nuevo',
-      sold: 'vendidos'
+      sold: 'vendidos',
+      loading: 'Cargando...',
+      buy: 'Comprar',
+      error: 'Error'
     }
   }
 }

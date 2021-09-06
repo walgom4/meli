@@ -22,9 +22,7 @@ export default function Home() {
   return (
     <PageTemplate>
       <HomeContainer>
-      <GeneralContainer>
-        Ingresa una busqueda
-      </GeneralContainer>
+      <GeneralContainer />
       </HomeContainer>
     </PageTemplate>
   )

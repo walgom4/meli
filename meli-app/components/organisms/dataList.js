@@ -10,6 +10,7 @@ import { GeneralContainer } from '@components/atoms/container'
 import { Amount } from '@components/molecules/amount'
 import { Description } from '@components/atoms/description'
 import { Place } from '@components/atoms/place'
+import { useTranslation } from 'react-i18next'
 
 const DataContainer = styled.div`
   display: flex;
@@ -38,13 +39,14 @@ const Item = styled.div`
 
 export const DataList = ({ data }) => {
   if (data !== null) {
+    const { t } = useTranslation()
     const { posts, error } = useGetItems(data)
     const dispatch = useDispatch()
     const router = useRouter()
-    if (error) return <h1>Ha ocurrido un error!</h1>
+    if (error) return <h1>{t('error')}</h1>
     if (!posts) {
       return (<DataContainer>
-        <div className="item"><h1>Cargando...</h1>
+        <div className="item"><h1>{t('loading')}</h1>
         </div>
         </DataContainer>)
     }

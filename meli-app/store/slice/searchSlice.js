@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+// handles ids and keywords to search data
 export const searchSlice = createSlice({
   name: 'url',
   initialState: {
@@ -17,14 +17,11 @@ export const searchSlice = createSlice({
     },
     setUrlDetails: (state, action) => {
       state.id = `${action.payload}`
-    },
-    setCategories: (state, action) => {
-      state.categories = action.payload
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { setUrl, setOffset, setLimit, setUrlDetails, setCategories } = searchSlice.actions
+export const { setUrl, setOffset, setLimit, setUrlDetails } = searchSlice.actions
 
 export default searchSlice.reducer

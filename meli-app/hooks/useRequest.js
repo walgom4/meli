@@ -1,10 +1,12 @@
 import useSWR from 'swr'
 
+// fetch data
 const fetcher = (url) => fetch(url).then((res) => res.json())
-const BASE_URL = 'http://localhost:3000/api'
-const LIMIT = 4
-const OFFSET = 0
+const BASE_URL = process.env.BASE_URL_API
+const LIMIT = process.env.LIMIT
+const OFFSET = process.env.OFFSET
 
+// hook to get items using SWR to improve performance
 export const useGetItems = (value, limit = LIMIT, offset = OFFSET) => {
   if (!value) {
     throw new Error('value is required')
@@ -17,6 +19,7 @@ export const useGetItems = (value, limit = LIMIT, offset = OFFSET) => {
   return { posts, error }
 }
 
+// hook to get item detail using SWR to improve performance
 export const useGetItemDetail = (value) => {
   if (!value) {
     throw new Error('value is required')

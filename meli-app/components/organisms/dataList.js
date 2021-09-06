@@ -39,17 +39,26 @@ const Item = styled.div`
 
 export const DataList = ({ data }) => {
   if (data !== null) {
+    // internationalization hook
     const { t } = useTranslation()
+    // fetch data
     const { posts, error } = useGetItems(data)
     const dispatch = useDispatch()
     const router = useRouter()
-    if (error) return <h1>{t('error')}</h1>
+    // if error display a message
+    if (error) {
+      return (<DataContainer>
+      <h1>{t('error')}</h1>
+      </DataContainer>)
+    }
+    // if no data available yet display a loading message
     if (!posts) {
       return (<DataContainer>
         <div className="item"><h1>{t('loading')}</h1>
         </div>
         </DataContainer>)
     }
+    // if data available update state categories
     if (posts && posts.categories) {
       dispatch(setCategories(posts.categories))
     }

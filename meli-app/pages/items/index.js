@@ -11,6 +11,7 @@ export default function Items() {
   const dispatch = useDispatch()
   const router = useRouter()
   const [stateKeyword, setstateKeyword] = useState('')
+  // effect to redirect when user search
   useEffect(() => {
     if (keyword && keyword !== '') {
       setstateKeyword(keyword)
@@ -18,7 +19,9 @@ export default function Items() {
     }
   }, [keyword])
   if (router) {
+    // effect to set search, description, title
     useEffect(() => {
+      // get query 'q' from url
       const { q } = router.query
       if (q) {
         dispatch(setUrl(`${q}`))

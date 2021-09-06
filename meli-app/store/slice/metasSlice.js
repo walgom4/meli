@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+// SEO improvement, this state update meta data
 export const metasSlice = createSlice({
   name: 'metas',
   initialState: {

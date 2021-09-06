@@ -14,7 +14,7 @@ const defaultTheme = {
     header: `${referenceValues.header}px`,
     section: `calc(100vh - ${referenceValues.header}px)`
   },
-  spacing: {
+  spacing: { // aplies to margins, paddings
     x1: `${referenceValues.spacing * 1}px`,
     x2: `${referenceValues.spacing * 2}px`,
     x3: `${referenceValues.spacing * 3}px`,

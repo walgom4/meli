@@ -31,3 +31,24 @@ swr
 express
 axios
 
+## Folder Structure
+```bash
+├── components              # based in atomic design
+├────── atoms               
+├────── molecules               
+├────── organisms           
+├────── template            
+├── hooks                   # custom hooks
+├── pages                   # pages
+├── public                  # pages
+├── store                   # slices, reducers, actions
+├── styles                  # global styles
+├── themes                  # theme
+├── utils                   # Tools and utilities
+├── i18n.js                 # Internationalization
+├── jsconfig.json           # Configuration file
+├── next.config.json        # Configuration file
+├── package.json            # Scripts and dependencies
+├── README.md
+└── server.js               # API/proxy
+```

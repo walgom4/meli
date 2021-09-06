@@ -13,9 +13,12 @@ const HomeContainer = styled.div`
   padding-bottom: ${props => props.theme.height.header};
   background-color: ${props => props.theme.primary[3]};
 `
+
+// home page
 export default function Home() {
   const keyword = useSelector(state => state.url.keyword)
   const router = useRouter()
+  // when a user search something this effect redirect to a new page
   useEffect(() => {
     if (keyword !== '') router.push(`/items?q=${keyword}`)
   }, [keyword])

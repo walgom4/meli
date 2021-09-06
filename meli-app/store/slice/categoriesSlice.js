@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+// this is used by BreadCrumb
 export const categoriesSlice = createSlice({
   name: 'categories',
   initialState: {

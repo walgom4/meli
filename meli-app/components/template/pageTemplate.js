@@ -10,6 +10,7 @@ export default function PageTemplate({ children }) {
   return (
     <PageContainer>
       <Head>
+        {/* meta data */}
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="twitter:card" content={card} />
@@ -24,6 +25,7 @@ export default function PageTemplate({ children }) {
         <meta name="og:url" content={domain} />
         <link rel="icon" href="/assets/Logo_ML.png" />
       </Head>
+      {/* header */}
       <Search />
       <BreadCrumb/>
       <main>

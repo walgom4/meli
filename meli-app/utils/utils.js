@@ -1,3 +1,4 @@
+// format json
 const formatItems = (data) => {
   const items = data.results.map((item) => {
     return {
@@ -33,7 +34,7 @@ const formatItems = (data) => {
   }
   return response
 }
-
+// format json
 const formatItemDetail = (data) => {
   const response = {
     author: {
@@ -58,13 +59,13 @@ const formatItemDetail = (data) => {
 
   return response
 }
-
+// filter pictures according with the size
 const filterPictures = (data, size) => {
   return data.variations.filter(function (item) {
     return item.size === size
   })
 }
-
+// format currency
 const currencyFormat = (data) => {
   const value = Math.trunc(data)
   return data ? `$ ${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}` : ''

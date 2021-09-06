@@ -9,17 +9,20 @@ export default function ItemsId() {
   const { id, keyword } = useSelector(state => state.url)
   const dispatch = useDispatch()
   const router = useRouter()
+  // redirect to search by keyword
   useEffect(() => {
     if (keyword && keyword !== '' && id === '') {
       router.push(`/items?q=${keyword}`)
     }
   }, [keyword])
+  // redirect to search by id
   useEffect(() => {
     if (id && id !== '') {
       router.push(`/items/${id}`)
     }
   }, [id])
   if (router) {
+    // get id from url
     useEffect(() => {
       const { id } = router.query
       if (id) {

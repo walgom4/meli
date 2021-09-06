@@ -9,6 +9,7 @@ class MyDocument extends Document {
 
   render() {
     return (
+      // adding lang=es to improve SEO
       <Html lang="es">
         <Head />
         <body>

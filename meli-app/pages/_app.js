@@ -9,7 +9,9 @@ import { Provider } from 'react-redux'
 
 function MyApp({ Component, pageProps }) {
   return (
+    // provider for redux
     <Provider store={store}>
+      {/* theme provider to handle style constans */}
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>

@@ -79,18 +79,28 @@ const DetailContainer = styled.div`
   width: calc(100% - ${props => props.theme.spacing.x16});
 `
 
+// product details
 export const DataDetail = ({ data }) => {
   if (data !== null) {
+    // internationalization hook
     const { t } = useTranslation()
+    // fetch data
     const { posts, error } = useGetItemDetail(data)
     const dispatch = useDispatch()
-    if (error) return <h1>{t('error')}</h1>
+    // if error display a message
+    if (error) {
+      return (<DataContainer>
+        <h1>{t('error')}</h1>
+        </DataContainer>)
+    }
+    // if no data available yet display a loading message
     if (!posts) {
       return (<DataContainer>
         <div className="item"><h1>{t('loading')}</h1>
         </div>
         </DataContainer>)
     }
+    // if data available update metas
     if (posts) {
       dispatch(setTitle(posts.item.title))
       dispatch(setDescription(posts.item.description))

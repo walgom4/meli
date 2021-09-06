@@ -16,7 +16,8 @@ const resources = {
       sold: 'sold',
       loading: 'Loading...',
       buy: 'Buy',
-      error: 'Error'
+      error: 'Error',
+      'Hello, I wish to get this product': 'Hello, I wish to get this product:'
     }
   },
   es: {
@@ -30,7 +31,8 @@ const resources = {
       sold: 'vendidos',
       loading: 'Cargando...',
       buy: 'Comprar',
-      error: 'Error'
+      error: 'Error',
+      'Hello, I wish to get this product': 'Hola, deseo adquirir  este producto:'
     }
   }
 }

@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { currencyFormat } from '@utils/utils'
 import { useDispatch } from 'react-redux'
 import { setTitle, setImage, setDescription } from '@store/slice/metasSlice'
+import { sendMessage } from '../../utils/utils'
 
 const DataContainer = styled.div`
   display: flex;
@@ -127,7 +128,7 @@ export const DataDetail = ({ data }) => {
                     <PriceDetail>
                       {posts?.item?.price?.amount ? currencyFormat(posts?.item?.price?.amount) : '0'}<div className="decimal">00</div>
                     </PriceDetail>
-                    <Button>{t('buy')}</Button>
+                    <Button onClick={() => { sendMessage(`${t('Hello, I wish to get this product')} ${window.location.href}`) }}>{t('buy')}</Button>
                   </DetailContainer>
                 </div>
               </div>

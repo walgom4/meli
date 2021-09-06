@@ -71,4 +71,10 @@ const currencyFormat = (data) => {
   return data ? `$ ${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}` : ''
 }
 
-module.exports = { formatItems, formatItemDetail, currencyFormat, filterPictures }
+// send message to whatsapp
+const sendMessage = (message) => {
+  // eslint-disable-next-line no-undef
+  window.open(`https://wa.me/+573173763714?text=${encodeURI(message)}`, 'blank')
+}
+
+module.exports = { formatItems, formatItemDetail, currencyFormat, filterPictures, sendMessage }
